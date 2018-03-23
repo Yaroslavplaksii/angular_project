@@ -40,7 +40,7 @@ module.exports = (app, passport) => {
     app.put('/update/:id', authController.update);
 
     app.get('/exportdata/:token',authController.exportdata);
-
+    app.get('/getallusers/:token',authController.getallusers);
     app.get('/logout', authController.logout);
 
     function isLoggedIn(req, res, next) {

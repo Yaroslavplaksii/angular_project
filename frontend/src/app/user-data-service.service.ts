@@ -34,4 +34,8 @@ export class UserDataServiceService {
       //   return Observable.throw('Server error');
       // });
   }
+
+  getAllUsers(data){
+    return this.http.get(`http://localhost:${this.port}/getallusers/${data}`);
+  }
 }

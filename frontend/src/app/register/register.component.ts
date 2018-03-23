@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators } from '@angular/forms';
 import {UserDataServiceService} from "../user-data-service.service";
 
 @Component({
@@ -13,11 +13,11 @@ import {UserDataServiceService} from "../user-data-service.service";
 export class RegisterComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router, private UserDataServiceService: UserDataServiceService) {
-    if(localStorage.getItem('jwtToken')!==null){
-      this.router.navigate(['dashboard']);
+    if(localStorage.getItem('jwtToken')===null){
+      this.router.navigate(['/login']);
     }
   }
-  form: FormGroup;
+
 
   ngOnInit(){
     this.form = new FormGroup({
@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit {
       lastname: new FormControl('')
     })
   }
+  form: FormGroup;
   message = '';
   data: any;
 

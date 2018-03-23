@@ -146,6 +146,22 @@ module.exports = {
             res.send({error:true, message: 'Unknown error'});
         }
     },
+    getallusers:(req,res)=>{
+        const user_data = jwt.decode(req.params['token']);
+        try{
+            if(!user_data['id']){
+                res.redirect('/');
+            }else{
+                User.findAll({
+                    attributes: ['firstname','lastname','id','email','createdAt']
+                }).then((users)=>{
+                    res.send(users);
+                });
+            }
+        }catch(err){
+            res.send({error:true, message: 'Unknown error'});
+        }
+    },
     logout:(req,res)=>{
         req.session.destroy((error)=>{
             res.redirect('/');

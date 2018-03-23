@@ -7,11 +7,11 @@ import {LogoutComponent} from "./logout/logout.component";
 
 const appRoutes: Routes = [
 
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    data: { title: 'Dashboard' }
-  },
+  // {
+  //   path: 'dashboard',
+  //   component: DashboardComponent,
+  //   data: { title: 'Dashboard' }
+  // },
   {
     path: 'login',
     component: LoginComponent,

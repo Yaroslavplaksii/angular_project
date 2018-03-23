@@ -1,3 +1,26 @@
-<p>
-  user-list works!
-</p>
+<div class="container">
+  <h2>Users database</h2>
+  <p>Impor users database to <button class="btn btn-outline-danger" (click)="excel()">Excel</button> <a class="btn btn-ligh" [routerLink]="'/dashboard/adduser'">Add new user</a></p>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>№</th>
+      <th>#ID</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Created</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users; let idx = index">
+      <td>{{idx+1}}</td>
+      <td>{{user.id}}</td>
+      <td>{{user.firstname}}</td>
+      <td>{{user.lastname}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.createdAt}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

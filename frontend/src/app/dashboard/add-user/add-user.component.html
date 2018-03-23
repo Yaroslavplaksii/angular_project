@@ -1,3 +1,29 @@
-<p>
-  add-user works!
-</p>
+<div class="container">
+  <h2 class="form-signin-heading">Add new user</h2>
+  <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="message !== ''">
+    {{message}}
+  </div>
+  <form [formGroup]="form" class="form-signin" (ngSubmit)="register()">
+    <div class="form-group" [ngClass]="{'has-error':form.get('email').invalid && form.get('email').touched}">
+      <label>Email Address</label>
+      <input class="form-control" type="text" formControlName="email">
+      <p *ngIf="form.get('email').invalid && form.get('email').touched">Incorrect field e-mail</p>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':form.get('firstname').invalid && form.get('firstname').touched}">
+      <label>Firstname</label>
+      <input class="form-control" type="text" formControlName="firstname">
+      <p *ngIf="form.get('firstname').invalid && form.get('firstname').touched">Field firstname can not be empty</p>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':form.get('lastname').invalid && form.get('lastname').touched}">
+      <label>Lastname</label>
+      <input class="form-control" type="text" formControlName="lastname">
+      <p *ngIf="form.get('firstname').invalid && form.get('firstname').touched">Field lastname can not be empty</p>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':form.get('password').invalid && form.get('password').touched}">
+      <label>Password</label>
+      <input class="form-control" type="password" formControlName="password">
+      <p *ngIf="form.get('password').invalid && form.get('password').touched">Field password can not be empty</p>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="form.invalid">Register</button>
+  </form>
+</div>
