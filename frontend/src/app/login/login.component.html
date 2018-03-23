@@ -1,0 +1,37 @@
+<!--<div class="container">-->
+  <!--<form class="form-signin" (ngSubmit)="login()" #loginForm="ngForm">-->
+    <!--<div class="alert alert-warning alert-dismissible" role="alert" *ngIf="message !== ''">-->
+      <!--&lt;!&ndash;<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>&ndash;&gt;-->
+      <!--{{message}}-->
+    <!--</div>-->
+    <!--<h2 class="form-signin-heading">Please sign in</h2>-->
+    <!--<label for="inputEmail" class="sr-only">Email address</label>-->
+    <!--<input type="email" class="form-control" placeholder="Email address" [(ngModel)]="loginData.email" name="email" required/>-->
+    <!--<label for="inputPassword" class="sr-only">Password</label>-->
+    <!--<input type="password" class="form-control" placeholder="Password" [(ngModel)]="loginData.password" name="password" required/>-->
+    <!--<button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!loginForm.form.valid">Sign in</button>-->
+    <!--&lt;!&ndash;<p>&ndash;&gt;-->
+      <!--&lt;!&ndash;Not a member? <a [routerLink]="['/signup']">Signup here</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;</p>&ndash;&gt;-->
+  <!--</form>-->
+<!--</div>-->
+<div class="container">
+  <h2 class="form-signin-heading">LOGIN</h2>
+  <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="message !== ''">
+    {{message}}
+  </div>
+  <form [formGroup]="form" class="form-signin" (ngSubmit)="login()">
+    <div class="form-group" [ngClass]="{'has-error':form.get('email').invalid && form.get('email').touched}">
+      <label class="sr-only">Email address</label>
+      <input type="email" class="form-control" placeholder="Email address" formControlName="email">
+      <p *ngIf="form.get('email').invalid && form.get('email').touched" class="error-field">Incorrect field e-mail!</p>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':form.get('password').invalid && form.get('password').touched}">
+      <label class="sr-only">Password</label>
+      <input type="password" class="form-control" placeholder="Password" formControlName="password">
+      <p *ngIf="form.get('password').invalid && form.get('password').touched" class="error-field">Field password can not be empty</p>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="form.invalid">Sign in</button>
+  </form>
+  <p class="form-signin">Not a member? <a [routerLink]="['/register']">Register</a></p>
+</div>

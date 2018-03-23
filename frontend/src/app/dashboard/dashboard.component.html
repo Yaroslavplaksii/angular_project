@@ -1,0 +1,84 @@
+<app-header></app-header>
+<div class="container">
+
+<h1>Personal cabinet  Expor in <button class="btn btn-outline-danger" (click)="excel()">Excel</button></h1>
+<hr>
+<div class="alert alert-warning alert-dismissible" *ngIf="message !== ''">
+{{message}}
+</div>
+
+  <form class="form-signin" name="signup" (ngSubmit)="update(myform)" #myform="ngForm">
+    <div class="form-group">
+      <label>Email Address</label>
+      <input class="form-control"
+             name="email"
+             type="text"
+             ngModel
+             required
+             email
+             [(ngModel)]="email"
+            >
+    </div>
+    <div class="form-group">
+    <label>Firstname</label>
+    <input class="form-control"
+           name="firstname"
+           ngModel
+           required
+           firstname
+           [(ngModel)]="firstname"
+           type="text">
+    </div>
+    <div class="form-group">
+      <label>Lastname</label>
+      <input class="form-control"
+             name="lastname"
+             type="text"
+             ngModel
+             required
+             lastname
+             [(ngModel)]="lastname">
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input class="form-control"
+             name="password"
+             type="password"
+             ngModel
+             password
+             [(ngModel)]="password">
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" [disabled]="!myform.valid" type="submit">Update</button>
+  </form>
+</div>
+
+
+<!--<div class="container">-->
+  <!--<h1>Personal cabinet <button class="btn btn-success" (click)="logout()">Logout</button></h1>-->
+  <!--<hr>-->
+  <!--<div class="alert alert-warning alert-dismissible" *ngIf="message !== ''">-->
+  <!--{{message}}-->
+  <!--</div>-->
+<!--<form [formGroup]="form"  class="form-signin" (ngSubmit)="update()">-->
+  <!--<div class="form-group" [ngClass]="{'has-error':form.get('email').invalid && form.get('email').touched}">-->
+    <!--<label>Email Address</label>-->
+    <!--<input class="form-control" type="text" formControlName="email">-->
+    <!--<p *ngIf="form.get('email').invalid && form.get('email').touched">Field e-mail is incorrect</p>-->
+  <!--</div>-->
+  <!--<div class="form-group" [ngClass]="{'has-error':form.get('firstname').invalid && form.get('firstname').touched}">-->
+    <!--<label>Firstname</label>-->
+    <!--<input class="form-control" type="text" formControlName="firstname">-->
+    <!--<p *ngIf="form.get('firstname').errors['required'] && form.get('firstname').touched">Field firstname cannot be empty</p>-->
+  <!--</div>-->
+  <!--<div class="form-group" [ngClass]="{'has-error':form.get('lastname').invalid && form.get('lastname').touched}">-->
+    <!--<label>Lastname</label>-->
+    <!--<input class="form-control" type="text"formControlName="lastname">-->
+    <!--<p *ngIf="form.get('lastname').invalid && form.get('lastname').touched">Field lastname cannot be empty</p>-->
+  <!--</div>-->
+  <!--<div class="form-group">-->
+    <!--<label>Password</label>-->
+    <!--<input class="form-control" type="password" formControlName="password">-->
+  <!--</div>-->
+<!--<button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="form.invalid">Update</button>-->
+<!--</form>-->
+<!--</div>-->
